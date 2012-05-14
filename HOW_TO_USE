@@ -1,0 +1,25 @@
+制作嵌入式文件系统工具 mkfs.ext2 mkfs.ext3 mkfs.ext4  
+http://blog.163.com/ljf_gzhu/blog/static/13155344020106910285765/
+
+2010-07-09 22:53:43|  分类： ARM-Linux |字号 订阅
+
+
+4. cd进入__INSTALL目录，并建立配置脚本envsetup.sh，根据我们的应用目标，配置选项中大部分采用默认配置，脚本内容如下：
+
+#! /bin/sh
+
+CC=arm-linux-gcc ../configure --enable-elf-shlibs --host=arm --prefix=/home/dongyl/source/my-project/e2fsprogs-1.42.2/__INSTALL
+
+5. 输入命令chmod 777 evnsetup.sh，让脚本具有执行权限；
+
+6. 执行脚本：./envsetup.sh
+
+7. make
+
+8. make install
+
+9. 如果上面命令执行成功的话，会在release 目录里面生成 bin, sbin, lib 等目录；
+
+10. 复制 bin 目录的所有程序到开发板的 /usr/bin 目录，复制 sbin 目录的所有程序到开发板的 /usr/sbin 目录，复制 lib 目录的所有动态库文件到开发板的 /usr/lib 目录；
+
+11. 大功告成。
